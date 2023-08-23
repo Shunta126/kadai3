@@ -21,25 +21,3 @@
  <%= f.text_area :body %>
 <p><%= f.submit 'Create Book' %></p>
 <% end %>
-
-<table>
-<h1>Books</h1>
-<tr>
-<th></th>
-<th>Title</th>
-<th>Opinion</th>
-</tr>
-
-<tr>
- <% @books.each do |book| %>
-<td>写真</td>
-<td><%= book.title %></td>
-<td><%= book.body %></td>
-</tr>
-<% end %>
-</table>
-
- <footer>
-    <a>CanpyRight Infratop.inc</a>
-  </footer>
-

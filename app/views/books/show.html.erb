@@ -1,9 +1,17 @@
 <h1>User info</h1>
 <!--写真-->
-<h3>name</h3>
-<h3>introduction</h3>
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= @user.introduction %></th>
+  </tr>
+</table>
 
-<div>editに繋がる</div>
+<p><%= link_to "edit", edit_book_path(current_user) %></p>
 
 <h1>New book</h1>
 <%= form_with model: @book do |f| %>
@@ -13,7 +21,6 @@
  <%= f.text_area :body %>
 <p><%= f.submit 'Create Book' %></p>
 <% end %>
-
 <h1>Book detail</h1>
 <table>
     <tr>
