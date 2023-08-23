@@ -6,25 +6,34 @@
 <div>editに繋がる</div>
 
 <h1>New book</h1>
+<%= form_with model: @book do |f| %>
 <p>Title</p>
+<%= f.text_field :title %>
 <p>Opinion</p>
+ <%= f.text_area :body %>
+<p><%= f.submit 'Create Book' %></p>
+<% end %>
 <!--左-->
 
 
 <table>
 <h1>Books</h1>
-<td>
+<tr>
 <th></th>
 <th>Title</th>
 <th>Opinion</th>
-</td>
+</tr>
 
-<td>
-<tr>写真</tr>
-<tr>title</tr>
-<tr>opinion</tr>
-</td>
+<tr>
+ <% @books.each do |book| %>
+<td>写真</td>
+<td><%= book.title %></td>
+<td><%= book.body %></td>
+</tr>
+<% end %>
 </table>
 
-
+ <footer>
+    <a>CanpyRight Infratop.inc</a>
+  </footer>
 
