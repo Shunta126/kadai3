@@ -1,0 +1,38 @@
+<h1>User info</h1>
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= @user.introduction %></th>
+  </tr>
+</table>
+
+<p><%= link_to "edit", edit_user_path(current_user) %></p>
+
+<h1>New Book</h1>
+<%= form_with model: @book do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>Opinion</p>
+ <%= f.text_area :body %>
+<p><%= f.submit 'Create Book' %></p>
+<% end %>
+
+<table>
+  <h1>Users</h1>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+
+<td>写真</td>
+<td><%= user.name %></td>
+<td><%= link_to "show", user_path(user.id)%></td>
+</tr>
+<% end %>
+</table>
