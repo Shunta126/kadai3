@@ -2,7 +2,7 @@
 <%= form_with model: @users do |f| %>
 <a>Name<br><%= f.text_field :name %></a>
 <br>
-<p>Image<br>ファイル選択されていません</p>
+<p><%= f.file_field :image, accept: "image/*" %><br>ファイル選択されていません</p>
 <br>
 <p>Intoduction<br><%= f.text_area :introduction %></p>
 <br>

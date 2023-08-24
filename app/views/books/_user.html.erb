@@ -1,5 +1,5 @@
 <h1>User info</h1>
-<!--写真-->
+
 <table>
   <tr>
     <th>name</th>
@@ -9,6 +9,5 @@
     <th>introduction</th>
     <th><%= user.introduction %></th>
   </tr>
+  <th><p><%= link_to "edit", edit_user_path(current_user) %></p></th>
 </table>
-
-<p><%= link_to "edit", edit_user_path(current_user) %></p>
