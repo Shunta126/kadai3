@@ -24,11 +24,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    users =  User.find(params[:id])
+    @users =  User.find(params[:id])
     @post_image = PostImage.new
-    users.update(user_params)
+     if @users.update(user_params)
     flash[:notice] = "You have updated user successfully."
-    redirect_to user_path(users.id)
+    redirect_to user_path(@users.id)
+  else
+    render :edit
+  end
   end
 
   private
