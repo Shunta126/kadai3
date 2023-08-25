@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    </script><script src="https://kit.fontawesome.com/6e0d014d63.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,39 +14,29 @@
   <body>
     <header>
        <% if user_signed_in? %>
-      <div class="container-fluid">
-       <div class="header row px-3 py-4">
-        <div class="col-2"><%= link_to "Bookers", root_path %></div>
 
-      <div class="col-lg-1"><%= link_to "Home", user_path(current_user) %></div>
-      <li>
-        <%= link_to "Users", users_path %>
-      </li>
-      <li>
-        <%= link_to "Books", books_path %>
-      </li>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
+      <p><%= link_to "Bookers", root_path %></p>
+
+      <P><i class="fa-solid fa-house-chimney" style="color: #f2f4f7;"></i><%= link_to "Home", user_path(current_user) %></P>
+
+      <p><i class="fa-solid fa-users" style="color: #f4f6fb;"></i><%= link_to "Users", users_path %></p>
+
+      <p><i class="fa-regular fa-book-open" style="color: #f8f9fc;"></i><%= link_to "Books", books_path %></p>
+
+      <p><i class="fa-solid fa-right-from-bracket" style="color: #f4f7fa;"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
     <% else %>
-      <li>
-        <%= link_to "Bookers", root_path %>
-      </li>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
+
+      <p><%= link_to "Bookers", root_path %></p>
+
+      <p><i class="fa-solid fa-house-chimney" style="color: #f2f4f7;"></i><%= link_to "Home", root_path %></p>
+
+      <p><i class="fa-solid fa-link" style="color: #f5f7f9;"></i><%= link_to "About", about_path %></p>
+
+      <p><i class="fa-solid fa-user-plus" style="color: #f4f7fa;"></i><%= link_to "Sign up", new_user_registration_path %></p>
+
+      <p><i class="fa-solid fa-right-to-bracket" style="color: #f2f4f8;"></i><%= link_to "Log in", new_user_session_path %></p>
     <% end %>
-    </div>
-  </div>
+
 
     <div><%= flash[:notice] %></div>
   </header>
