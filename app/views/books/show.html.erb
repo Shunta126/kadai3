@@ -5,7 +5,11 @@
 <h1>Book detail</h1>
 <table>
     <tr>
-        <td>syasinn</td>
+        <td><% if @book.image.attached? %>
+    <%= image_tag @book.image, size: "90x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "90x100" %>
+  <% end %></td>
         <td><%= link_to @books.title, book_path(@books.id) %></td>
         <td><%= @books.body %></td>
         <td><%= link_to "Edit", edit_book_path(@books.id) %></td>

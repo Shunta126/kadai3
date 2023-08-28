@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     </script><script src="https://kit.fontawesome.com/6e0d014d63.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,8 +15,15 @@
   <body>
     <header>
        <% if user_signed_in? %>
+　　　<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <a class="navbar-brand"<%= link_to "Bookers", root_path %>></a>
 
-      <p><%= link_to "Bookers", root_path %></p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
 
       <P><i class="fa-solid fa-house-chimney" style="color: #f2f4f7;"></i><%= link_to "Home", user_path(current_user) %></P>
 
@@ -24,6 +32,11 @@
       <p><i class="fa-regular fa-book-open" style="color: #f8f9fc;"></i><%= link_to "Books", books_path %></p>
 
       <p><i class="fa-solid fa-right-from-bracket" style="color: #f4f7fa;"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+
+      </ul>
+      </div>
+
+      </nav>
     <% else %>
 
       <p><%= link_to "Bookers", root_path %></p>
@@ -41,6 +54,6 @@
     <div><%= flash[:notice] %></div>
   </header>
 
-    <%= yield %>
+       <%= yield %>
   </body>
 </html>

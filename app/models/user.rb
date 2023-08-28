@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
 
   validates :name, presence: true
+   has_one_attached :image
 end

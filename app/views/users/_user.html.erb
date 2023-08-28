@@ -1,5 +1,9 @@
 <h1>User info</h1>
-<!--写真-->
+<% if user.image.attached? %>
+    <%= image_tag user.image, size: "90x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "90x100" %>
+  <% end %>
 <table>
   <tr>
     <th>name</th>
