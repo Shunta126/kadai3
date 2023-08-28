@@ -22,9 +22,9 @@
   <% else %>
     <%= image_tag 'no_image', size: "90x100" %>
   <% end %><br>
-  <%= link_to "user.name", user_path(@user.id) %>
+  <%= link_to @user.name, user_path(@user.id) %>
   </td>
-<td><%= link_to "book.title", book_path(book.id) %></td>
+<td><%= link_to @book.title, book_path(book.id) %></td>
 <td><%= book.body %></td>
 </tr>
 <% end %>
