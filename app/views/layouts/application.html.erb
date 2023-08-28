@@ -12,48 +12,103 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <% if user_signed_in? %>
+
   <body>
-    <header>
-       <% if user_signed_in? %>
-　　　<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand"<%= link_to "Bookers", root_path %>></a>
+
+      <header>
+      <div class="container-fould">
+　　　<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="navbar-brand">
+       <%= link_to "Bookers", root_path, class: "navbar-brand" %>
+        </div>
+
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
 
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-       <ul class="navbar-nav mr-auto">
+       <ul class="navbar-nav d-flex">
 
-      <P><i class="fa-solid fa-house-chimney" style="color: #f2f4f7;"></i><%= link_to "Home", user_path(current_user) %></P>
+         <li class="nav-link text-light ">
+           <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+           <i class="fas fa-home"></i>Home
+            <% end %>
+         </li>
 
-      <p><i class="fa-solid fa-users" style="color: #f4f6fb;"></i><%= link_to "Users", users_path %></p>
+         <li class="nav-link text-light ">
+           <%= link_to users_path, class: "nav-link text-light" do  %>
+           <i class="fas fa-users"></i>Users
+           <% end %>
+          </li>
 
-      <p><i class="fa-regular fa-book-open" style="color: #f8f9fc;"></i><%= link_to "Books", books_path %></p>
+         <li class="nav-link text-light ">
+            <%= link_to books_path, class: "nav-link text-light" do  %>
+            <i class="fas fa-book-open"></i>Books
+             <% end %>
+          </li>
 
-      <p><i class="fa-solid fa-right-from-bracket" style="color: #f4f7fa;"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+          <li class="nav-link text-light ">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+             <i class="fas fa-sign-out-alt"></i>Log out
+              <% end %>
+          </li>
+
 
       </ul>
       </div>
 
       </nav>
     <% else %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <div class="navbar-brand">
+       <%= link_to "Bookers", root_path, class: "navbar-brand" %>
+       </div>
 
-      <p><%= link_to "Bookers", root_path %></p>
+      <ul class="ml-auto d-flex">
+       <li class="nav-link text-light ">
+        <%= link_to root_path, class: "nav-link text-light" do %>
+          <i class="fas fa-home"></i>Home
+            <% end %>
+       </li>
 
-      <p><i class="fa-solid fa-house-chimney" style="color: #f2f4f7;"></i><%= link_to "Home", root_path %></p>
+      <li class="nav-link text-light ">
+        <%= link_to about_path, class: "nav-link text-light" do %>
+         <i class="fas fa-link"></i>About
+          <% end %>
+      </li>
 
-      <p><i class="fa-solid fa-link" style="color: #f5f7f9;"></i><%= link_to "About", about_path %></p>
 
-      <p><i class="fa-solid fa-user-plus" style="color: #f4f7fa;"></i><%= link_to "Sign up", new_user_registration_path %></p>
+       <li class="nav-link text-light ">
+        <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+          <i class="fas fa-user-plus"></i>Sign up
+            <% end %>
+        </li>
 
-      <p><i class="fa-solid fa-right-to-bracket" style="color: #f2f4f8;"></i><%= link_to "Log in", new_user_session_path %></p>
+      <li class="nav-link text-light ">
+        <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+         <i class="fas fa-sign-in-alt"></i>Log in
+           <% end %>
+          </li>
     <% end %>
 
-
-    <div><%= flash[:notice] %></div>
+    </ul>
+    </nav>
+    </div>
+     <div><%= flash[:notice] %></div>
   </header>
-
+  <main class="mb-auto">
        <%= yield %>
+  </main>
   </body>
+   <footer>
+     <div class="container mt-6">
+       <div class="row">
+         <div class="mx-auto">
+           <a>CanpyRight Infratop.inc</a>
+         </div>
+       </div>
+     </div>
+  </footer>
 </html>
