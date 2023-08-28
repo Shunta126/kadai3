@@ -1,3 +1,7 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %>error prohibited this obj from being saved:
   <ul>
@@ -11,8 +15,11 @@
 
 <%= render 'book', book: @book %>
 
-<table>
+  </div>
+
+  <div class="col-md-8 offset-md-1">
   <h1>Users</h1>
+  <table>
   <tr>
     <th>image</th>
     <th>name</th>
@@ -30,3 +37,7 @@
 </tr>
 <% end %>
 </table>
+</div>
+
+ </div>
+</div>

@@ -1,3 +1,7 @@
+<div class="container">
+ <div class="row">
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 <h2>Editing Book</h2>
 
 <% if @book.errors.any? %>
@@ -11,10 +15,14 @@
 
 <%= form_with model: @book do |f| %>
   <p>Title<br><%= f.text_field :title %></p>
-  <p>Body<br><%= f.text_area :body %></p>
+  <p>Opinion<br><%= f.text_area :body %></p>
   <br>
- <P><%= f.submit 'Update Book' %></P>
+ <P><%= f.submit 'Update Book', class:"btn btn-success" %></P>
 
 <% end %>
 
 <p><%= link_to 'show' , book_path %> | <%= link_to 'Back', books_path %></P>
+
+   </div>
+  </div>
+</div>

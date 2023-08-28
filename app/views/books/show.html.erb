@@ -1,7 +1,11 @@
-<%= render 'user', user: @user %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+     <%= render 'user', user: @user %>
+     <%= render 'book', book: @book %>
+    </div>
 
-<%= render 'book', book: @book %>
-
+<div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
 <table>
     <tr>
@@ -12,13 +16,16 @@
   <% end %></td>
         <td><%= link_to @books.title, book_path(@books.id) %></td>
         <td><%= @books.body %></td>
-        <td><%= link_to "Edit", edit_book_path(@books.id) %></td>
+        <td><%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %></td>
         <td>
           <% if @books.user == current_user %>
-          <%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "Destroy", book_path(@books.id), class: "btn btn-sm btn-danger",  method: :delete, "data-confirm" => "本当に削除しますか？" %>
           <% end %>
         </td>
     </tr>
 
 </table>
+</div>
 
+ </div>
+</div>

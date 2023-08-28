@@ -1,5 +1,9 @@
 <h1>User info</h1>
-
+<% if @book.image.attached? %>
+    <%= image_tag book.image, size: "90x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "90x100" %>
+  <% end %>
 <table>
   <tr>
     <th>name</th>
@@ -9,5 +13,9 @@
     <th>introduction</th>
     <th><%= user.introduction %></th>
   </tr>
-  <th><p><%= link_to edit_user_path(current_user) do %><i class="fa-solid fa-user-gear"></i><% end %></p></th>
+
 </table>
+
+<%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
