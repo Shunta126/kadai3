@@ -8,5 +8,8 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
 
   validates :name, presence: true
-   has_one_attached :image
+   has_one_attached :profile_image
+   validates :name, uniqueness: true
+  validates :name, length:{minimum: 2,maximum:20}
+  validates :introduction, length:{maximum:50}
 end

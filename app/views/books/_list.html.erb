@@ -1,6 +1,6 @@
 <h1>User info</h1>
-<% if @book.image.attached? %>
-    <%= image_tag book.image, size: "90x100" %>
+<% if @book.profile_image.attached? %>
+    <%= image_tag book.profile_image, size: "90x100" %>
   <% else %>
     <%= image_tag 'no_image', size: "90x100" %>
   <% end %>
