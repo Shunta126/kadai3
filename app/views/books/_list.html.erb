@@ -4,7 +4,7 @@
   <% else %>
     <%= image_tag 'no_image', size: "90x100" %>
   <% end %>
-<table>
+<table class="table table">
   <tr>
     <th>name</th>
     <th><%= user.name %></th>
@@ -19,3 +19,13 @@
 <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
         <i class="fas fa-user-cog"></i>
         <% end %>
+
+<h1>New Book</h1>
+
+<%= form_with model: book do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>Opinion</p>
+ <%= f.text_area :body %>
+<p><%= f.submit 'Create Book', class: "btn btn-success" %></p>
+<% end %>

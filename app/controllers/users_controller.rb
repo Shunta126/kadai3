@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-     @user = User.find(current_user.id)
       @book = Book.new
      @users = User.all
   end
@@ -38,14 +37,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction )
   end
-
-  def book_params
-    params.require(:book).permit(:title, :body, :user_id)
-  end
-
-  def post_image_params
-     params.require(:post_image).permit(:shop_name, :image, :caption)
-  end
-
 
 end
